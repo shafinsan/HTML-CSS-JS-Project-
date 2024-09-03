@@ -1,0 +1,217 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: black;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    border: 2px solid;
+    position: relative;
+    overflow: hidden;
+    perspective: 1000px;
+}
+
+.navigation {
+    width: 100%;
+    height: 7%;
+    margin: 2px;
+    border: 2px solid;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+}
+
+nav {
+    width: 43px;
+    height: 43px;
+    border: 2px solid;
+    margin-left: 2px;
+    border: 2px solid white;
+    position: absolute;
+    padding: 2px;
+    margin: 2px;
+    z-index: 1000;
+}
+
+nav span {
+    position: absolute;
+    width: 80%;
+    background-color: white;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 2px;
+    transition: all 0.5s;
+}
+
+nav span:nth-child(1) {
+    top: 25%;
+    height: 3px;
+}
+
+nav span:nth-child(2) {
+    top: 50%;
+    height: 3px;
+}
+
+nav span:nth-child(3) {
+    top: 75%;
+    height: 3px;
+}
+
+nav.active span:nth-child(1) {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+nav.active span:nth-child(2) {
+    display: none;
+}
+
+nav.active span:nth-child(3) {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.page_container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s;
+    z-index: 3;
+    overflow: hidden;
+}
+
+.page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+
+}
+
+.home.active {
+    background-image: url("david-marcu-78A265wPiO4-unsplash.jpg");
+}
+
+.content.active {
+    background-image: url("adam-kool-ndN00KmbJ1c-unsplash.jpg");
+}
+
+.title.active {
+    background-image: url("goutham-krishna-h5wvMCdOV3w-unsplash.jpg");
+}
+
+.page span {
+    display: none;
+}
+
+.page.active span {
+    display: block;
+    font-size: 2rem;
+    color: white;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.page_container.active {
+    left: -10px;
+    transform: translate(4%, -47%) rotateY(20deg) scale(0.7);
+}
+
+@media screen and (max-width: 377px) {
+    .page_container.active {
+        left: -46px;
+        transform: translate(3%, -47%) rotateY(18deg) scale(0.8);
+        background-color: black;
+    }
+
+    .link {
+        right: calc(100% - 117%);
+
+    }
+}
+
+@media screen and (max-width: 229px) {
+    .page_container.active {
+        left: -10px;
+        transform: translate(-3%, -50%) rotateY(20deg) scale(1);
+    }
+
+    .link {
+        right: calc(100% - 117%);
+
+    }
+}
+
+.link {
+    position: absolute;
+    right: calc(100% - 99%);
+    top: 50%;
+    color: white;
+}
+
+ul {
+
+    width: 100px;
+    height: 200px;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1;
+}
+
+li {
+    list-style: none;
+    margin: 10px;
+    padding: 4px;
+    font-size: 1.2rem;
+    font-family: sans-serif;
+}
+
+li:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+.overlay {
+    position: absolute;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    z-index: 100;
+}
+
+@keyframes slider {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
